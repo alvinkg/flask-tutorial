@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      
+      <h3>
+         <a href = "{{ url_for('user_list') }}">Users - Flask 
+            SQLAlchemy example</a>
+      </h3>
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>Users (<a href = "{{ url_for('user_create') }}">Add User
+         </a>)</h3>
+      
+      <table>
+         <thead>
+            <tr>
+                <th>ID</th>
+               <th>UserName</th>
+               <th>Email</th>
+            </tr>
+         </thead>
+         
+         <tbody>
+            {% for user in users %}
+               <tr>
+                    <td>{{user.id}}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+      
+   </body>
+</html>
